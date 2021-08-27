@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Calculator_Application" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_green</item>
+        <item name="colorPrimaryVariant">@color/dark_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/dark_gray</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="button">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="button.oper">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/oper_button</item>
+    </style>
+
+    <style name="button.oper.equal">
+        <item name="android:layout_width">168dp</item>
+    </style>
+
+    <style name="button.num">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/num_button</item>
+    </style>
+</resources>

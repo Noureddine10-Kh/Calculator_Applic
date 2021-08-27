@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Calculator_App</string>
+    <string name="oper_text">12 + 5 + 2019</string>
+    <string name="text_result"></string>
+    <string name="plus_oper">+</string>
+    <string name="min_oper">-</string>
+    <string name="div_oper">/</string>
+    <string name="num_seven">7</string>
+    <string name="num_eight">8</string>
+    <string name="num_nine">9</string>
+    <string name="clean_btn">c</string>
+    <string name="mul_oper">*</string>
+    <string name="min_plus_btn">+/-</string>
+    <string name="num_six">6</string>
+    <string name="num_five">5</string>
+    <string name="num_four">4</string>
+    <string name="num_one">1</string>
+    <string name="num_two">2</string>
+    <string name="num_three">3</string>
+    <string name="mode_btn">%</string>
+    <string name="num_zero">0</string>
+    <string name="comma_btn">.</string>
+    <string name="equal_oper">=</string>
+</resources>
