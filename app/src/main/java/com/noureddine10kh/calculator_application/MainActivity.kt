@@ -4,17 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import com.noureddine10kh.calculator_application.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var text_result :TextView
-    lateinit var plus_btn :Button
-    lateinit var minus_btn :Button
-    lateinit var div_btn :Button
-    lateinit var mul_btn :Button
-    lateinit var equal_btn :Button
-    lateinit var clear_btn :Button
+    lateinit var binding: ActivityMainBinding
     lateinit var oldNumber :String
     lateinit var historyNumber :String
     lateinit var newTextResult :String
@@ -23,34 +17,24 @@ class MainActivity : AppCompatActivity() {
     var result :Double? =null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initView( )
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         clear()
         makeOperation()
         displayResult()
     }
 
-    private fun initView() {
-        text_result = findViewById(R.id.result)
-        equal_btn = findViewById(R.id.equal_btn)
-        clear_btn = findViewById(R.id.clean_btn)
-        plus_btn = findViewById(R.id.plus_oper)
-        minus_btn = findViewById(R.id.min_oper)
-        div_btn = findViewById(R.id.div_oper)
-        mul_btn = findViewById(R.id.multi_oper)
-    }
-
     fun makeOperation (){
-        plus_btn.setOnClickListener {
+        binding.plusOper.setOnClickListener {
             doOperation(Operation.plus,newTextResult)
         }
-        minus_btn.setOnClickListener {
+        binding.minOper.setOnClickListener {
             doOperation(Operation.minus,newTextResult)
         }
-        div_btn.setOnClickListener {
+        binding.divOper.setOnClickListener {
             doOperation(Operation.division,newTextResult)
         }
-        mul_btn.setOnClickListener {
+        binding.multiOper.setOnClickListener {
             doOperation(Operation.multiplication,newTextResult)
         }
     }
@@ -65,24 +49,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayResult() {
-        equal_btn.setOnClickListener {
+        binding.equalBtn.setOnClickListener {
             if (historyNumber!="" && newTextResult!= ""){
                 when(operationSign){
                     Operation.plus -> {
                         result = historyNumber.toDouble() + newTextResult.toDouble()
-                        text_result.text = result.toString()
+                        binding.result.text = result.toString()
                     }
                     Operation.minus -> {
                         result = historyNumber.toDouble() - newTextResult.toDouble()
-                        text_result.text = result.toString()
+                        binding.result.text = result.toString()
                     }
                     Operation.multiplication -> {
                         result = historyNumber.toDouble() * newTextResult.toDouble()
-                        text_result.text = result.toString()
+                        binding.result.text = result.toString()
                     }
                     Operation.division -> {
                         result = historyNumber.toDouble() / newTextResult.toDouble()
-                        text_result.text = result.toString()
+                        binding.result.text = result.toString()
                     }
                 }
             }else if (historyNumber!="" && newTextResult==""){
@@ -95,18 +79,18 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickNumber(v:View){
         newDigit = (v as Button).text.toString()
-        oldNumber =  text_result.text.toString()
+        oldNumber =  binding.result.text.toString()
         newTextResult = oldNumber + newDigit
-        text_result.text = newTextResult
+        binding.result.text = newTextResult
     }
     fun clear (){
-        clear_btn.setOnClickListener {
+       binding.cleanBtn.setOnClickListener {
             clearTextResult()
             historyNumber = ""
         }
     }
     fun clearTextResult() {
-        text_result.text = ""
+        binding.result.text = ""
         newTextResult = ""
     }
 }
