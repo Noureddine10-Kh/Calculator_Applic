@@ -9,6 +9,7 @@ import com.noureddine10kh.calculator_application.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     lateinit var oldNumber :String
     lateinit var historyNumber :String
     lateinit var newTextResult :String
